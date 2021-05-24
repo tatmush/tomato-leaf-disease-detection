@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>HIT 400 | Tomato Leaf Disease Detection using AI model</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 550px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+        
+    /* On small screens, set height to 'auto' for the grid */
+    @media screen and (max-width: 767px) {
+      .row.content {height: auto;} 
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse visible-xs">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Tomato Leaf Disease Detection</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Dashboard</a></li>
+        <li><a href="#">Age</a></li>
+        <li><a href="#">Gender</a></li>
+        <li><a href="#">Geo</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav hidden-xs">
+      <h2>HIT 400</h2>
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="#section1">Dashboard</a></li>
+        <!-- <li><a href="#section2">Age</a></li>
+        <li><a href="#section3">Gender</a></li>
+        <li><a href="#section3">Geo</a></li> -->
+      </ul><br>
+    </div>
+    <br>
+    
+    <div class="col-sm-9">
+      <div class="well">
+        <h1>Tomato Leaf Disease Detection</h1>
+        <p>Tomato Leaf Disease Detection using Artificial Intelligence. The model was trained using
+            supervised learning, a subcategory of machine learning. 1000 images of the following diseases
+            where loaded into the model.
+            <ul>
+                <li>Bacterial spot</li>
+                <li>Early blight</li>
+                <li>Septoria leaf spot</li>
+                <li>Tomato late blight</li>
+                <li>Yellow leaf curl virus</li>
+                <li>Healthy</li>
+            </ul>
+        </p>
+      </div>
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="well">
+            <h4>Total Number of Scans</h4>
+            <h2 style="color: #c82333;" class="counter-count">{{ total_number_of_scans }}</h2> 
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="well">
+            <h4>Disease Space</h4>
+            <h2 style="color: #0069d9;" class="counter-count">{{ number_of_diseases }}</h2> 
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="well">
+            <h4>Registered Farmers</h4>
+            <h2 style="color: #6c757d;" class="counter-count">{{ number_of_farmers }}</h2> 
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="well">
+            <h4>Districts</h4>
+            <h2 style="color: #28a745;" class="counter-count">{{ number_of_locations }}</h2> 
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <h2 style="margin-left: 20px;">Disease Count</h2>
+        <div class="col-sm-4">
+          <div class="well">
+            <p>Bacterial spot<span class="counter-count" style="float: right">{{tomato_bacterial_spot_count}}</span></p> 
+            <p>Early blight<span class="counter-count" style="float: right">{{Tomato_Early_blight_count}}</span></p> 
+            
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="well">
+            <p>Septoria leaf spot<span class="counter-count" style="float: right">{{ Tomato_Septoria_leaf_spot_count }}</span></p>
+            <p>Late Blight<span class="counter-count" style="float: right">{{ Tomato_Late_blight_count }}</span></p> 
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="well">
+            <p>Yellow Leaf Curl Virus<span class="counter-count" style="float: right">{{ yellow_leaf_curl_virus_count }}</span></p>
+            <p>Healthy<span class="counter-count" style="float: right">{{ Tomato_healthy_count }}</span></p>  
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="well">
+            <h2>Scans in {{month}}</h2>
+            <p>Bacterial spot<span class="counter-count" style="float: right">{{ tomato_bacterial_spot_count_month }}</span></p> 
+            <p>Early blight<span class="counter-count" style="float: right">{{Tomato_Early_blight_count_month}}</span></p>
+            <p>Septoria leaf spot<span class="counter-count" style="float: right">{{ Tomato_Septoria_leaf_spot_count_month }}</span></p>
+            <p>Late Blight<span class="counter-count" style="float: right">{{ Tomato_Late_blight_count_month }}</span></p>
+            <p>Yellow Leaf Curl Virus<span class="counter-count" style="float: right">{{ yellow_leaf_curl_virus_count_month }}</span></p>
+            <p>Healthy<span class="counter-count" style="float: right">{{ Tomato_healthy_count_month }}</span></p>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="well">
+            <h4>Scans in {{month}}</h4>
+            <h2 style="color: #ffc107;"class="counter-count">{{number_of_scans}}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+    $('.counter-count').each(function () {
+        $(this).prop('Counter',0).animate({
+            Counter: $(this).text()
+        }, {
+            duration: 3000,
+            easing: 'swing',
+            step: function (now) {
+                $(this).text(Math.ceil(now));
+            }
+        });
+    });
+</script>
+</body>
+</html>
