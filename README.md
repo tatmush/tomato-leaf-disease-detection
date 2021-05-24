@@ -9,14 +9,14 @@ This repo consists of a Flask server and a React-Native app that offers farmers 
 ## Screenshots
 
 ### Flask server
-![alt text](screenshots/flask_dashboard.png?raw=true "Dashboard")
+![Dashboard](screenshots/flask_dashboard.png?raw=true "Dashboard")
 
 ### Mobile App
-![alt text](screenshots/disease_detection.png?raw=true "Disease Detection")
+![Disease Detection"](screenshots/disease_detection.PNG?raw=true "Disease Detection")
 
-![alt text](screenshots/news.png?raw=true "News")
+![News](screenshots/news.PNG?raw=true "News")
 
-![alt text](screenshots/farmer_info.png?raw=true "Farmer")
+![Farmer](screenshots/farmer_info.PNG?raw=true "Farmer")
 
 ### AI Model
 
