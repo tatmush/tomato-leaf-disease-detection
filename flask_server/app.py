@@ -62,34 +62,34 @@ def hello():
         Tomato_healthy_count = len(rows.fetchall())
 
         # Scans in the last 30 days
-        last_month = datetime.now() -   timedelta(30)
-        month = datetime.now().strftime('%B')
-        rows = cur.execute("SELECT * FROM stats where time>?",(last_month,))
+        last_week = datetime.now() - timedelta(7)
+        # month = datetime.now().strftime('%B')
+        rows = cur.execute("SELECT * FROM stats where time>?",(last_week,))
         number_of_scans = len(rows.fetchall())
 
         # Scans per disease for last 30 days.
         # Bacterial spot
-        rows = cur.execute("SELECT disease FROM stats where time>? and disease=? COLLATE NOCASE", (last_month, 'tomato_bacterial_spot',))
+        rows = cur.execute("SELECT disease FROM stats where time>? and disease=? COLLATE NOCASE", (last_week, 'tomato_bacterial_spot',))
         tomato_bacterial_spot_count_month = len(rows.fetchall())
 
         # Early blight
-        rows = cur.execute("SELECT disease FROM stats where time>? and disease=? COLLATE NOCASE", (last_month, 'Tomato_Early_blight',))
+        rows = cur.execute("SELECT disease FROM stats where time>? and disease=? COLLATE NOCASE", (last_week, 'Tomato_Early_blight',))
         Tomato_Early_blight_count_month = len(rows.fetchall())
 
         # Septoria leaf spot
-        rows = cur.execute("SELECT disease FROM stats where time>? and disease=? COLLATE NOCASE", (last_month, 'Tomato_Septoria_leaf_spot',))
+        rows = cur.execute("SELECT disease FROM stats where time>? and disease=? COLLATE NOCASE", (last_week, 'Tomato_Septoria_leaf_spot',))
         Tomato_Septoria_leaf_spot_count_month = len(rows.fetchall())
 
         # Tomato late blight
-        rows = cur.execute("SELECT disease FROM stats where time>? and disease=? COLLATE NOCASE", (last_month, 'Tomato_Late_blight',))
+        rows = cur.execute("SELECT disease FROM stats where time>? and disease=? COLLATE NOCASE", (last_week, 'Tomato_Late_blight',))
         Tomato_Late_blight_count_month = len(rows.fetchall())
 
         # Yellow leaf curl virus
-        rows = cur.execute("SELECT disease FROM stats where time>? and disease=? COLLATE NOCASE", (last_month, 'yellow_leaf_curl_virus',))
+        rows = cur.execute("SELECT disease FROM stats where time>? and disease=? COLLATE NOCASE", (last_week, 'yellow_leaf_curl_virus',))
         yellow_leaf_curl_virus_count_month = len(rows.fetchall())
 
         # Healthy
-        rows = cur.execute("SELECT disease FROM stats where time>? and disease=? COLLATE NOCASE", (last_month, 'Tomato_healthy',))
+        rows = cur.execute("SELECT disease FROM stats where time>? and disease=? COLLATE NOCASE", (last_week, 'Tomato_healthy',))
         Tomato_healthy_count_month = len(rows.fetchall())
         
         
@@ -99,7 +99,8 @@ def hello():
             tomato_bacterial_spot_count=tomato_bacterial_spot_count, Tomato_Early_blight_count=Tomato_Early_blight_count,\
             Tomato_Septoria_leaf_spot_count=Tomato_Septoria_leaf_spot_count, Tomato_Late_blight_count=Tomato_Late_blight_count,\
             yellow_leaf_curl_virus_count=yellow_leaf_curl_virus_count, Tomato_healthy_count=Tomato_healthy_count,\
-            number_of_scans=number_of_scans, month=month,\
+            number_of_scans=number_of_scans,\
+            #, month=month,\
             tomato_bacterial_spot_count_month=tomato_bacterial_spot_count_month, Tomato_Early_blight_count_month=Tomato_Early_blight_count_month,\
             Tomato_Septoria_leaf_spot_count_month=Tomato_Septoria_leaf_spot_count_month, Tomato_Late_blight_count_month=Tomato_Late_blight_count_month,\
             yellow_leaf_curl_virus_count_month=yellow_leaf_curl_virus_count_month, Tomato_healthy_count_month=Tomato_healthy_count_month)
