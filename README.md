@@ -79,6 +79,6 @@ Statistics regarding the diagnoses are stored in a sqlite database and rendered 
 
 `python app.py`
 
-# Authors
-1. tatalmondmush@gmail.com
+# Contributors
+1. tatmush - tatalmondmush@gmail.com
 2. Loice Zimucha
